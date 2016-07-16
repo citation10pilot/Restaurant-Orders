@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://localhost:2000',
 
     /*
     |--------------------------------------------------------------------------
@@ -144,6 +144,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        RocketCode\Shopify\ShopifyServiceProvider::class,
 
     ],
 
