@@ -48,6 +48,19 @@ class AppController extends Controller {
 			    $shop->url = $shopDomain;
 				$shop->token = $accessToken;
 			    $shop->save();
+				try {
+					$call = $shopifyClient->call([
+						'URL' => 'webhooks.json', 
+						'METHOD' => 'POST', 
+						'DATA' => [
+							"topic" => "orders\/create",
+						    "address" => "http:\/\/whatever.hostname.com\/",
+						    "format" => "json"
+					    ]
+					]);
+				} catch (Exception $e) {
+					$call = $e->getMessage();
+				}
 			} catch (Exception $e) {
 			    echo '<pre>Error: ' . $e->getMessage() . '</pre>';
 			}
