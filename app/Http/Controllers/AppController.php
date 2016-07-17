@@ -44,7 +44,7 @@ class AppController extends Controller {
 
 			try	{
 			    $accessToken = $shopifyClient->getAccessToken($code);
-			    $shopifyClient->setup(['ACCESS_TOKEN' => $accessToken]);
+				$shopifyClient->setup(['ACCESS_TOKEN' => $accessToken]);
 			    $shop = new App\Shop;
 			    $shop->url = $shopDomain;
 				$shop->token = $accessToken;
