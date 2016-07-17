@@ -53,10 +53,12 @@ class AppController extends Controller {
 					$call = $shopifyClient->call([
 						'URL' => 'webhooks.json', 
 						'METHOD' => 'POST', 
-						'DATA' => [
-							"topic" => "orders\/create",
-						    "address" => "http:\/\/whatever.hostname.com\/",
-						    "format" => "json"
+						'ALLDATA' => TRUE,
+						'DATA' => [ 'webhook' => [
+								"topic" => "orders\/create",
+							    "address" => "http:\/\/foodmenupro.com\/",
+							    "format" => "json"
+						    ]
 					    ]
 					]);
 				} catch (Exception $e) {
