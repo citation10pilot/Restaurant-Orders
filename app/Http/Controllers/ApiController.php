@@ -27,6 +27,7 @@ class ApiController extends Controller {
 		    $order->data = $data;
 		    $order->save();	   
 		} else {
+			$data = file_get_contents('php://input');
 			$order = new \App\Order;
 		    $order->data = 'Header Not Found '.$data;
 		    $order->save();
