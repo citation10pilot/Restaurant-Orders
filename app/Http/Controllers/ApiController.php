@@ -17,8 +17,8 @@ class ApiController extends Controller {
 	public function order( Request $request ) {
 		// var_dump($request->header('host'));
 		// var_dump($request->headers->all());
-		if ( $request->header( 'HTTP_X_SHOPIFY_HMAC_SHA256' ) ) {
-			$hmac_header = $request->header( 'HTTP_X_SHOPIFY_HMAC_SHA256' ); // X-Shopify-Hmac-Sha256
+		if ( $request->header( 'X-Shopify-Hmac-SHA256' ) ) {
+			$hmac_header = $request->header( 'X-Shopify-Hmac-SHA256' ); // X-Shopify-Hmac-Sha256 / HTTP_X_SHOPIFY_HMAC_SHA256
 			$data = file_get_contents('php://input');
 			$verified = $this->verify_webhook($data, $hmac_header);
 			var_export($verified);
@@ -27,6 +27,9 @@ class ApiController extends Controller {
 		    $order->data = $data;
 		    $order->save();	   
 		} else {
+			$order = new \App\Order;
+		    $order->data = 'Header Not Found '.$data;
+		    $order->save();
 			return 'This Area Is Closed To The Public.';
 		} 
 	}
