@@ -24,6 +24,7 @@ Route::get('connect', 'AppController@connect');
 
 Route::get('app', 'AppController@app');
 
+Route::get('setup', 'AppController@setup');
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,4 @@ Route::get('app', 'AppController@app');
 */
 
 Route::post('api/order', 'ApiController@order');
+Route::get('api/order', 'ApiController@order');
