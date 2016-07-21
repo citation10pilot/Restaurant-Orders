@@ -15,28 +15,24 @@ class ApiController extends Controller {
 
 	/* Ingests orders from Shopify Webhook */
 	public function order( Request $request ) {
-		$order = new \App\Order;
-	    $order->data = 'Endpoint Hit';
-	    $order->save();	
 		// var_dump($request->header('host'));
 		// var_dump($request->headers->all());
 		if ( $request->header( 'X-Shopify-Hmac-SHA256' ) ) {
 			$order = new \App\Order;
-		    $order->data = 'Header Found ';
-		    $order->save();
+
 			$hmac_header = $request->header( 'X-Shopify-Hmac-SHA256' ); // X-Shopify-Hmac-Sha256 / HTTP_X_SHOPIFY_HMAC_SHA256
 			$data = file_get_contents('php://input');
 			$verified = $this->verify_webhook($data, $hmac_header);
-			var_export($verified);
-			
-			$order = new \App\Order;
-		    $order->data = $data;
-		    $order->save();	   
-		} else {
-			$data = file_get_contents('php://input');
-			$order = new \App\Order;
-		    $order->data = 'Header Not Found '.$data;
+
+			if ( $verified ) {				
+			    $order->data = $data;
+		    } else {
+				$order->data = 'Hmac not Verified: '.$hmac_header;
+		    }
+		    
 		    $order->save();
+		    
+		} else {
 			return 'This Area Is Closed To The Public.';
 		} 
 	}
