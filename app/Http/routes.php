@@ -25,6 +25,13 @@ Route::get('connect', 'AppController@connect');
 Route::get('app', 'AppController@app');
 
 Route::get('setup', 'AppController@setup');
+Route::get('upwork', 'AppController@upwork');
+Route::get('upworkcallback', 'AppController@upworkCallback');
+
+//Route::get('artnaturals', 'AppController@art');
+//Route::get('artorders', 'AppController@artOrders');
+//Route::get('artimages', 'AppController@artImages');
+//Route::get('artroutes', 'AppController@artRoutes');
 
 /*
 |--------------------------------------------------------------------------
