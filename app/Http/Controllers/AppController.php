@@ -315,7 +315,7 @@ class AppController extends Controller {
 				'requestSecret'     => $request->session()->get('oauth_token_secret'),
 		        'verifier'          => Input::get('oauth_verifier'),
 				'authType'          => 'OAuthPHPLib',
-		        'debug'             => true,
+		        'debug'             => false,
 				'mode'              => 'web'
 		    )
 		);
@@ -329,8 +329,9 @@ class AppController extends Controller {
 		// gets info of the authenticated user
 	    $auth = new \Upwork\API\Routers\Auth($client);
 	    $info = $auth->getUserInfo();
-	
+		echo '<pre>';
 	    print_r($info);
+	    echo '</pre>';
 	}
 	public function upwork( Request $request ) {  
 		$config = new \Upwork\API\Config(
