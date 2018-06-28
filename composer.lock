@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6e2b8c7acdbff0cd5770b2372de580a4",
-    "content-hash": "aabc6a88b020f44412f1f9850905bfb1",
+    "hash": "5d00ad43df11cdc78b285cc9712a8f1f",
+    "content-hash": "0dbaca3ff18ad103b170557dba6235fc",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1919,6 +1919,63 @@
                 "dump"
             ],
             "time": "2016-06-28 06:24:06"
+        },
+        {
+            "name": "upwork/php-upwork",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/upwork/php-upwork.git",
+                "reference": "56fd692390d77a4e4dbf9380adc2504895f776b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/upwork/php-upwork/zipball/56fd692390d77a4e4dbf9380adc2504895f776b1",
+                "reference": "56fd692390d77a4e4dbf9380adc2504895f776b1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/php-invoker": "*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "apigen/apigen": "dev-master",
+                "ext-oauth": "This extension from PECL provides OAuth consumer and provider bindings. See more under http://www.php.net/oauth",
+                "roave/better-reflection": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Upwork\\API": "src/"
+                },
+                "files": [
+                    "src/Upwork/API/constants.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Novozhylov",
+                    "email": "mnovozhilov@upwork.com",
+                    "homepage": "http://mnov.tel",
+                    "role": "Software Engineer, Platform/Integrity"
+                }
+            ],
+            "description": "PHP bindings for Upwork API",
+            "homepage": "http://www.upwork.com",
+            "keywords": [
+                "api",
+                "php",
+                "upwork"
+            ],
+            "time": "2018-05-24 00:00:00"
         },
         {
             "name": "vlucas/phpdotenv",
