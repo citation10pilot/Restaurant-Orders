@@ -327,10 +327,13 @@ class AppController extends Controller {
 		$request->session()->put('access_secret', $accessTokenInfo['access_secret']);
 		
 		// gets info of the authenticated user
-	    $auth = new \Upwork\API\Routers\Auth($client);
-	    $info = $auth->getUserInfo();
+	    // $auth = new \Upwork\API\Routers\Auth($client);
+	    // $info = $auth->getUserInfo();
+	    $jobs = new \Upwork\API\Routers\Jobs\Search($client);
+	    $params = array("q" => "shopify");
+		$jobs->find($params);
 		echo '<pre>';
-	    print_r($info);
+	    print_r($jobs);
 	    echo '</pre>';
 	}
 	public function upwork( Request $request ) {  
