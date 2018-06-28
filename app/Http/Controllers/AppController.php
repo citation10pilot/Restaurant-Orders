@@ -347,12 +347,12 @@ class AppController extends Controller {
 		
 		// Get Tokens
 		$requestTokenInfo = $client->getRequestToken();
-		print_r($requestTokenInfo);
+		
 		// Store Tokens
 		$request->session()->put('oauth_token', $requestTokenInfo['oauth_token']);
 		$request->session()->put('oauth_token_secret', $requestTokenInfo['oauth_token_secret']);
 		
 		// Generate Auth URL and Redirect
-		// $client->auth();
+		$client->auth();
 	}
 }
