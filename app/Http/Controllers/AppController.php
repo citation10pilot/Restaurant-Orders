@@ -330,7 +330,7 @@ class AppController extends Controller {
 	    // $auth = new \Upwork\API\Routers\Auth($client);
 	    // $info = $auth->getUserInfo();
 	    $jobs = new \Upwork\API\Routers\Jobs\Search($client);
-	    $params = array("q" => "shopify");
+	    $params = array("q" => "Shopify");
 		$jobs->find($params);
 		echo '<pre>';
 	    print_r($jobs);
