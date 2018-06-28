@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use App;
 use Input;
 use App\Http\Requests;
@@ -540,7 +539,7 @@ class AppController extends Controller {
 		    array(
 		        'consumerKey'       => 'fbbd7db551600a8d5054b041ff3385c1',
 		        'consumerSecret'    => '097fc447778e03cc',
-		        'requestToken'      => Input::get('access_token', null);
+		        'requestToken'      => Input::get('access_token', null),
 		        'verifier'          => Input::get('oauth_verifier', null),
 				'authType'          => 'OAuthPHPLib',
 		        'debug'             => true,
